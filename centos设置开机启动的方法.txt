@@ -11,3 +11,14 @@
 
 touch /var/lock/subsys/local
 /root/redis-5.0.2/src/redis-server /root/redis-5.0.2/redis.conf
+
+2、将shell放到/etc/profile.d/
+系统启动时加载 /etc/profile -> 内部加载 /etc/profile.d/ 路径下的*.sh脚本；
+用户登录时加载 ~/.bash_profile -> 内部加载 ~/.bashrc -> 内部加载 /etc/bashrc -> 内部加载 /etc/profile.d/ 路径下的*.sh脚本；
+用户退出时加载 ~/.bash_logout ；
+结论：
+在 /etc/profile 中配置系统变量；
+在 ~/.bash_profile 中配置用户变量；
+
+只需在/etc/profile.d/路径下放置脚本，系统开机会自动执行
+扩展用法：/etc/profile.d/创建path.sh用于存放系统环境变量，变更时直接修改脚本即可
