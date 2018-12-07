@@ -1,0 +1,13 @@
+1、修改 /etc/rc.d/rc.local 这个文件，将要执行的命令添加进去
+注：所有路径必须使用绝对路径
+
+例子：设置redis服务开机自启动
+[root@localhost ~]# cat /etc/rc.d/rc.local
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+touch /var/lock/subsys/local
+/root/redis-5.0.2/src/redis-server /root/redis-5.0.2/redis.conf
